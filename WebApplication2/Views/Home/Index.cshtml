@@ -1,0 +1,27 @@
+﻿@model WebApplication2.ViewModels.HomeViewModel
+
+@*<h1 style="background-color:dodgerblue;">@Model.Title</h1>*@
+<div style="overflow-x:auto;">
+    <table>
+        <tr>
+            <th>
+                @foreach (var name in Model.Envs.Select(x => x.Name).Distinct())
+                {
+                    <th>@name</th>
+                }
+            </th>
+
+        </tr>
+        <tr>
+            @foreach (var name in Model.Envs.Select(x=>x.Name).Distinct())
+            {
+                <tr>
+                    <td>
+                    <button onclick="envButton_Click" class="button">@name</button>
+                    </td>
+                </tr>
+            }
+            <td>@Model.Env.Name</td>
+        </tr>      
+    </table>
+</div>
